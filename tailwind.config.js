@@ -36,10 +36,10 @@ export default {
 				drkVeryDarkGrayishBlue: 'hsl(237, 14%, 26%)',
 			},
 			backgroundImage: {
-				'desktop-light':
-					"url('./src/assets/images/bg-desktop-light.jpg')",
-				'desktop-dark':
-					"url('./src/assets/images/bg-desktop-dark.jpg')",
+				'desktop-light': "url('/images/bg-desktop-light.jpg')",
+				'desktop-dark': "url('/images/bg-desktop-dark.jpg')",
+				'mobile-light': "url('/images/bg-mobile-light.jpg')",
+				'mobile-dark': "url('/images/bg-mobile-dark.jpg')",
 			},
 		},
 	},

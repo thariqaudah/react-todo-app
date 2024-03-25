@@ -122,7 +122,9 @@ export default function App() {
 	return (
 		<main
 			className={`relative py-12 lg:py-20 after:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:block after:w-full after:h-[40vh] after:bg-cover after:bg-no-repeat after:bg-center ${
-				isBgDark ? 'after:bg-desktop-dark' : 'after:bg-desktop-light'
+				isBgDark
+					? 'after:bg-mobile-dark lg:after:bg-desktop-dark'
+					: 'after:bg-mobile-light lg:after:bg-desktop-light'
 			}`}
 		>
 			<div className='container'>
