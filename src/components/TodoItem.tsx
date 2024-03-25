@@ -27,7 +27,7 @@ export default function TodoItem({
 
 	return (
 		<m.div
-			className={`group relative w-full p-5 bg-lgtVeryLightGray flex items-center gap-5 border border-lgtVeryLightGrayishBlue outline-none ${
+			className={`group relative w-full p-4 bg-lgtVeryLightGray flex items-center gap-5 border border-lgtVeryLightGrayishBlue outline-none lg:p-5 dark:bg-drkVeryDarkDesaturatedBlue dark:border-drkVeryDarkGrayishBlue ${
 				index === 0 && 'rounded-t'
 			}`}
 			initial={{ opacity: 0, translateX: '10%' }}
@@ -44,7 +44,7 @@ export default function TodoItem({
 			<input
 				id={`checkboxTodo-${id}`}
 				type='checkbox'
-				className={`appearance-none block p-3 border border-lightGrayishBlue rounded-full cursor-pointer ${
+				className={`appearance-none block p-3 border border-lgtLightGrayishBlue rounded-full cursor-pointer hover:border-lgtDarkGrayishBlue dark:border-drkDarkGrayishBlue dark:hover:border-drkLightGrayishBlueHover ${
 					isComplete
 						? 'relative bg-gradient-to-b from-gradientFrom to-gradientTo after:content-checkedIcon after:block after:absolute after:top-0 after:left-1/2 after:-translate-x-1/2'
 						: 'bg-transparent'
@@ -54,10 +54,10 @@ export default function TodoItem({
 				onChange={handleChange}
 			/>
 			<label
-				className={`inline-block mt-1 text-lg cursor-pointer ${
+				className={`inline-block mt-1 text-base cursor-pointer lg:text-lg ${
 					isComplete
-						? 'line-through text-lgtLightGrayishBlue'
-						: 'text-lgtVeryDarkGrayishBlue'
+						? 'line-through text-lgtLightGrayishBlue dark:text-drkDarkGrayishBlue'
+						: 'text-lgtVeryDarkGrayishBlue dark:text-drkLightGrayishBlue'
 				}`}
 				htmlFor={`checkboxTodo-${id}`}
 			>

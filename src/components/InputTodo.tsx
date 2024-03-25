@@ -31,7 +31,7 @@ export default function InputTodo({ addTodo }: InputTodoProps) {
 			onSubmit={handleSubmit}
 		>
 			<input
-				className='block w-full p-5 pl-[60px] rounded bg-lgtVeryLightGray text-lgtVeryDarkGrayishBlue shadow text-lg font-normal outline-none'
+				className='block w-full p-5 pl-[60px] rounded bg-lgtVeryLightGray text-lgtVeryDarkGrayishBlue shadow text-lg font-normal outline-none dark:bg-drkVeryDarkDesaturatedBlue dark:text-drkLightGrayishBlue'
 				placeholder='Create new todo...'
 				value={newTodo}
 				onChange={(e) => setNewTodo(e.target.value)}

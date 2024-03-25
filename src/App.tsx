@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import iconMoon from './assets/images/icon-moon.svg';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import { AppHeader } from './components/AppHeader';
 import InputTodo from './components/InputTodo';
 import TodoItem from './components/TodoItem';
 import ActionItem from './components/ActionItem';
-import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 
 type TodoItem = {
 	id: string;
@@ -17,6 +17,7 @@ type Filter = 'all' | 'active' | 'completed';
 
 export default function App() {
 	const [todos, setTodos] = useState<TodoList | null>(null);
+	const [isBgDark, setIsBgDark] = useState(false);
 	const [selectedFilter, setSelectedFilter] = useState<Filter>('all');
 
 	const filteredTodos = useMemo(() => {
@@ -119,20 +120,21 @@ export default function App() {
 	}
 
 	return (
-		<main className='relative py-8 lg:py-20 after:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:block after:w-full after:h-[40vh] after:bg-desktop-light after:bg-cover after:bg-no-repeat after:bg-center'>
+		<main
+			className={`relative py-12 lg:py-20 after:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:block after:w-full after:h-[40vh] after:bg-cover after:bg-no-repeat after:bg-center ${
+				isBgDark ? 'after:bg-desktop-dark' : 'after:bg-desktop-light'
+			}`}
+		>
 			<div className='container'>
 				{/* Title */}
-				<div className='flex items-center justify-between'>
-					<h1 className='text-4xl font-bold tracking-[0.2em] text-lgtVeryLightGray uppercase'>
-						Todo
-					</h1>
-					<img src={iconMoon} alt='theme icon' />
-				</div>
+				<AppHeader changeBg={(bool: boolean) => setIsBgDark(bool)} />
 
 				{/* Content */}
 				<div className='pt-10'>
+					{/* Input todo */}
 					<InputTodo addTodo={addTodo} />
 
+					{/* Todo list */}
 					<div className='pt-8'>
 						{filteredTodos && (
 							<DragDropContext onDragEnd={handleDragEnd}>
@@ -195,6 +197,10 @@ export default function App() {
 							clearCompletedTodos={clearCompletedTodos}
 						/>
 					</div>
+
+					<p className='text-sm font-medium mt-12 text-center text-lgtDarkGrayishBlue dark:text-drkDarkGrayishBlue'>
+						Drag and drop to reorder list
+					</p>
 				</div>
 			</div>
 		</main>
