@@ -12,7 +12,7 @@ export default {
 		},
 		extend: {
 			content: {
-				checkedIcon: "url('./src/assets/images/icon-check.svg')",
+				checkedIcon: "url('/images/icon-check.svg')",
 			},
 			container: {
 				center: true,
